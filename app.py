@@ -62,10 +62,12 @@ class Transaction:
         
         def __init__(self, category, amount, date_s):
             self.category = category
+
             try:
                 self.amount = float(amount)
             except ValueError as e:
                 raise e('The amount needs to be an int or float')
+            
             self.date_s = date_s
 
         def turn_dict(self):
@@ -185,7 +187,6 @@ def new():
             with open('date.json', 'w') as f:
                 json.dump(reader, f, indent=4)
                 break
-
         
 def change_total():
 
@@ -199,7 +200,6 @@ def change_total():
         json.dump(dict_,f, indent=4)
 
 
-
 funcs = {
     'average': average_finder,
     'total -c': change_total,
@@ -208,7 +208,6 @@ funcs = {
     'limit -c': change_limit,
     '-h': lambda: [print('*',i) for i in funcs]
 }
-
 
 def main():
     if len(sys.argv) < 2:
