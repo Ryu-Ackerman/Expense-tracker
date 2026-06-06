@@ -78,7 +78,7 @@ def modify():
                 }
 
                 with open('category.json', 'w') as f:
-                    json.dump(r, f, indent=4)
+                    json.dump(r, f, indent=3)
 
                 with open('monthly.csv', 'a', newline='') as f:
                     writer = csv.DictWriter(f, fieldnames=['month','amount'])
@@ -148,4 +148,4 @@ def negative_checker():
             
             else:break
     with open('category.json', 'w') as f:
-        json.dump(reader,f, indent=4)
+        json.dump(reader,f, indent=3)
